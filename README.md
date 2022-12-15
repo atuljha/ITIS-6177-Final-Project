@@ -26,6 +26,7 @@ url : http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/langauge-service
 
       method-type = post
       body-type = text
+      output = String
 
 sample input = ""El tiempo Hoy hace mucho frío. Es invierno y todas las calles están cubiertas de nieve. Dentro de poco vendrá la primavera conella el sol y el tiempo cálido. La semana pasada estuvo de lluvia y tormenta. Incluso un rayo cayó encima de la campana de la catedral, pero no ocurrió nada. Los truenos siempre me han dado miedo y mucho respeto."
 
@@ -35,10 +36,11 @@ sample Response : Detected primary language:Spanish, ISO 6391 name:es
 
 # 2. Entity Recognition: Given input text recognise the entities in the text and return it as Json response 
 
-url : [http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/langauge-service/identify ](http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/recognition)
+url : http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/recognition
 
       method-type = post
       body-type = text
+      output = Json
       
   Sample Input: "My Email Id is johndoe@gmail.com"
   
@@ -58,6 +60,7 @@ url : http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/extract-phrase
 
       method-type = post
       body-type = text
+      output = Json
       
 Sample Input: "Born and raised in central Argentina, Messi relocated to Spain at the age of 13 to join Barcelona, for whom he made his competitive debut aged 17 in October 2004. He established himself as an integral player for the club within the next three years, and in his first uninterrupted season in 2008–09 he helped Barcelona achieve the first treble in Spanish football;  "
 
@@ -80,6 +83,86 @@ Sample Reponse : " [
     "La Liga season",
     "most international goals",
 ]
+
+
+# 4. Recognize Entity : Run a predictive model to identify a collection of named entities in the provided document and categorize those entities into categories such as person, location, or organization
+
+url : http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/entity-service/analyse
+
+
+      method-type = post
+      body-type = text
+      output = Json
+      
+Sample Input : "Satya Nadella is the CEO of Microsoft"
+
+Sample Output : [
+    {
+        "category": "Person",
+        "subcategory": null,
+        "confidenceScore": 1.0
+    },
+    {
+        "category": "PersonType",
+        "subcategory": null,
+        "confidenceScore": 0.97
+    },
+    {
+        "category": "Organization",
+        "subcategory": null,
+        "confidenceScore": 0.99
+    }
+]
+
+<img width="1052" alt="Screenshot 2022-12-15 at 1 10 23 PM" src="https://user-images.githubusercontent.com/395023/207935836-56387869-f0f8-4685-a2a2-be37554f0d97.png">
+
+
+
+# 5 :  Recognize linked Entity: Run a predictive model to identify a collection of entities found in the provided document, and include information linking the entities to their corresponding entries in a well-known knowledge base.
+
+url : [http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/entity-service/analyse](http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/entity-service/linked-entities)
+
+
+      method-type = post
+      body-type = text
+      output = Json
+      
+Sample Input : "Satya Nadella is the CEO of Microsoft"
+
+Sample Output : [
+    {
+        "linkedEntityName": "Satya Nadella",
+        "sourceEntityId": "Satya Nadella",
+        "url": "https://en.wikipedia.org/wiki/Satya_Nadella",
+        "dataSource": "Wikipedia",
+        "matches": [
+            {
+                "text": "Satya Nadella",
+                "confidentScore": 0.89
+            }
+        ]
+    },
+    {
+        "linkedEntityName": "Microsoft",
+        "sourceEntityId": "Microsoft",
+        "url": "https://en.wikipedia.org/wiki/Microsoft",
+        "dataSource": "Wikipedia",
+        "matches": [
+            {
+                "text": "Microsoft",
+                "confidentScore": 0.36
+            }
+        ]
+    }
+]
+
+<img width="1018" alt="Screenshot 2022-12-15 at 1 17 49 PM" src="https://user-images.githubusercontent.com/395023/207937198-f0ddbc8c-9830-4646-aa1d-55de9ea20e4f.png">
+
+
+
+
+
+
 
 
 

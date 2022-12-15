@@ -161,7 +161,7 @@ Sample Output : [
 
 
 
-
+PostMan Collection is also provided which can be used to fetch data and test Api's
 
 
 

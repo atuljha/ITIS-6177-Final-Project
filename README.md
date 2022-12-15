@@ -21,7 +21,17 @@ Output of these Api's will be a JSON object containing the result of text analys
 
 # 1. Language Detection: 
 
-Api : 
+url : http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/langauge-service/identify
+method-type = post
+body-type = text
+
+sample input = ""El tiempo Hoy hace mucho frío. Es invierno y todas las calles están cubiertas de nieve. Dentro de poco vendrá la primavera conella el sol y el tiempo cálido. La semana pasada estuvo de lluvia y tormenta. Incluso un rayo cayó encima de la campana de la catedral, pero no ocurrió nada. Los truenos siempre me han dado miedo y mucho respeto."
+
+sample Response : Detected primary language:Spanish, ISO 6391 name:es
+
+<img width="1017" alt="Screenshot 2022-12-14 at 7 36 58 PM" src="https://user-images.githubusercontent.com/395023/207745440-e994a41c-891d-4448-92b4-3a5012827e2a.png">
+
+
 
 
 

@@ -6,6 +6,8 @@ This project is a Spring Boot Application running on AWS Instance and provides s
 
 The Application is highly available and is deployed on an AWS EC2 instance. This document details the api's availables through this applicaion and how to use them. It will also detail the urls and rest examples of each Api's. 
 
+# These API's can be tested using Postman collection Azure Language Services.postman_collection.json
+
 # Key concepts
 
 # Text Analytics client

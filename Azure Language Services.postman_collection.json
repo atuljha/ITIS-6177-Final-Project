@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "b339e9db-ce4e-407f-bf8e-3208e4ec8e56",
+		"name": "Azure Language Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IdentifyLanguage In Text",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"El tiempo Hoy hace mucho frío. Es invierno y todas las calles están cubiertas de nieve. Dentro de poco vendrá la primavera conella el sol y el tiempo cálido. La semana pasada estuvo de lluvia y tormenta. Incluso un rayo cayó encima de la campana de la catedral, pero no ocurrió nada. Los truenos siempre me han dado miedo y mucho respeto.\""
+				},
+				"url": {
+					"raw": "http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/langauge-service/identify",
+					"protocol": "http",
+					"host": [
+						"ec2-3-86-90-78",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"langauge-service",
+						"identify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extract Phrases",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Recognize Entity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"Lionel Messi is the best footballer\""
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/ap1/extract-phrase/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"ap1",
+						"extract-phrase",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entity Recognition",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Linked Entity Recognition",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://ec2-3-86-90-78.compute-1.amazonaws.com:8000/api/v1/entity-service/linked-entities",
+					"protocol": "http",
+					"host": [
+						"ec2-3-86-90-78",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"entity-service",
+						"linked-entities"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
